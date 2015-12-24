@@ -1,0 +1,37 @@
+/*************************************************************************
+	> File Name: climbStairs.c
+	> Author: Moby
+	> Mail: 9712579@gmail.com 
+	> Created Time: Wed 23 Dec 2015 02:01:00 PM UTC
+ ************************************************************************/
+
+#include<stdio.h>
+#include <stdlib.h>
+
+
+int climbStairs(int n)
+{
+    if(n < 0)
+        return 0; 
+
+    if((n == 1) || (n == 2))
+    {
+        return 1;
+    }
+    int iRet = 0;
+    for(int i = 3; i <= n; i ++)
+    {
+        iRet = climbStairs(i-1) + climbStairs(i - 2);  
+    }
+    return iRet + 1;
+}
+
+int main(int argc, char **argv)
+{
+    int iResVal = 0;
+    for(int i = 0; i < 10; i++)
+    {
+      iResVal = climbStairs(i); 
+      printf("i: %d, iResVal: %d\n",i, iResVal);
+    }
+}
