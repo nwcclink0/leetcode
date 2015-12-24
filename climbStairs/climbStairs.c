@@ -14,32 +14,18 @@ int climbStairs(int n)
     if(n < 0)
         return 0; 
 
-    if((n == 1))
+    int *resAry = (int*)malloc(sizeof(int) * (n + 1));
+    
+    resAry[0] = 9;
+    resAry[1] = 1;
+    resAry[2] = 2;
+    for(int i = 3; i <= n; i++)
     {
-        return 1;
+        resAry[i] = resAry[i -1 ] + resAry[i -2];
     }
-    else if(n == 2)
-    {
-        return 2;
-    }
-    else if( n == 3)
-    {
-        return 3;
-    }
-    else if(n == 4)
-    {
-        return 5;
-    }
-    else if (n == 5)
-    {
-        return 8;
-    }
-    else if(n == 6)
-    {
-        return 13;
-    }
-    int iRet =   climbStairs(n -1) + climbStairs(n - 2);  
-    return iRet;
+    int iResVal = resAry[n];
+    free(resAry);
+    return iResVal;
 }
 
 int main(int argc, char **argv)
