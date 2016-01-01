@@ -5,13 +5,13 @@ ifeq ($(CXX),)
 	CXX=g++
 endif
 
-all: sametree
+all: climbStairs 
 
-sametree.o: sametree.cpp ${HEADERS}
+climbStairs.o: climbStairs.c ${HEADERS}
 	${CXX} -c ${CFLAGS} ${INCS} $<
 
-sametree: sametree.o 
-	${CXX} -o $@ sametree.o ${LDFLAGS}
+climbStairs: climbStairs.o
+	${CXX} -o $@ climbStairs.o ${LDFLAGS}
 
 clean:
-	rm -f *.o sametree
+	rm -f *.o climbStairs
